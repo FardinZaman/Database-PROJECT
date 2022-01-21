@@ -1,0 +1,226 @@
+<query>
+<head>Create Account</head><title>Query for creating an acount.</title>
+
+<code>
+insert into person
+values(120, 'ratul', 'arar11@gmail.com', '1234', 'ahasnullah hall',1001);
+</code>
+</query>
+
+<query>			
+<head>Login Query</head>
+<title>Check if email passwod is valid.</title>
+
+<code>
+select *
+from person
+where email = 'arar11@gmail.com' and password = '1234';
+</code>
+</query>
+	
+<query>
+<head>Find restaurants nearby</head>
+<title>Query Find restaurants nearby.</title>
+
+<code>	
+select resturant.name Resturant_Name
+from resturant, person
+where 
+person.id = 2
+and 
+loctokm((select concat(l.lattitude, ',', l.longitude) from location l where l.location_id = person.location_id), 
+(select concat(l.lattitude, ',', l.longitude) from location l where l.location_id = resturant.location_id)) <= 5;
+</code>
+</query>
+
+<query>
+<head>Search for food categoy</head>
+<title>Query for Search for food categoy</title>
+
+<code>		
+select resturant.name
+from resturant,category,serves
+where  category.name like 'pizza' and
+	serves.food_id=category.food_id and
+	serves.resturant_id=resturant.id;
+</code>
+</query>
+	
+<query>
+<head>Search for restaurant by location</head>
+<title>Query for Search for restaurant by location</title>
+
+<code>		
+select resturant.name
+from resturant,location
+	where  location.area like 'buet' and
+       resturant.location_id = location.location_id;
+</code>
+</query>
+	
+
+----------------- FIND PIZZA IN BANANI ----------------------
+<query>
+<head>Search by cuisine</head>
+<title>Search by cuisine </title>
+
+<code>
+select DISTINCT resturant.name
+from resturant,serves,cuisine
+where cuisine.name LIKE 'indian' and
+      serves.food_id = cuisine.food_id and
+	  resturant.id = serves.resturant_id;
+</code>
+</query>
+
+
+
+<query>
+<head>Search by meal time</head>
+<title>Query for Search by meal time</title>
+
+<code>
+select resturant.name
+from resturant , meal_time
+where meal_time.meal_name LIKE 'lunch' and
+      resturant.id = meal_time.resturant_id;
+</code>
+ </query>
+
+ 
+
+ <query>
+<head>Search food and resturant by meal time</head>
+<title>Query for Search food and resturant by meal time.</title>
+
+<code>
+ select resturant.name,food.name
+from resturant , meal_time,food,serves
+where meal_time.meal_name LIKE 'lunch' and
+      resturant.id = meal_time.resturant_id and
+	  serves.resturant_id=meal_time.resturant_id and
+	  serves.food_id=food.id;
+</code>
+</query>
+
+
+
+<query>
+<head>Search follower count</head>
+<title>Query for Search follower count</title>
+
+<code>
+select count(*)
+from person , follow
+where person.name LIKE 'Perry' and
+      follow.followee_id = person.id;
+</code>
+</query>
+
+<query>
+<head>Ratings</head>
+<title>Resturant Ratings.</title>
+
+<code>
+select resturant.id,resturant.ratings
+from resturant;
+</code>
+</query>
+
+<query>
+<head>Create Review</head>
+<title>Query for creating a review.</title>
+
+<code>
+INSERT INTO review (id , ratings , comment , person_id , food_id)
+VALUES (9 , 3 , 'good' , 1003 , 501);
+</code>
+</query>
+
+<query>
+<head>Follow history</head>
+<title>Query for follow history.</title>
+
+<code>
+select *
+from follow_history;
+</code>
+</query>
+
+<query>
+<head>Follow</head>
+<title>Query for follow</title>
+
+<code>
+insert into follow values(1611,3,11);
+</code>
+</query>
+
+<query>
+<head>Like a restaurant</head>
+<title>Query for Like a restaurant</title>
+
+<code>
+INSERT INTO likes VALUES(2105 , 52 , 168 ,'L' , '2017-05-05');
+</code>
+</query>
+
+
+<query>
+<head>Dislike a restaurant</head>
+<title>Query for dislike a restaurant</title>
+
+<code>
+INSERT INTO likes VALUES(2106 , 53 , 168 ,'D' , '2017-05-05');
+</code>
+</query>
+
+<query>
+<head>Change your opinion</head>
+<title>Query for changing your openion</title>
+
+<code>
+delete from likes
+where person_id = 46 AND resturant_id = 168;
+</code>
+</query>
+
+
+<query>
+<head>Show the like dislike count</head>
+<title>Query for Show the like dislike count </title>
+
+<code>
+SELECT resturant_id,(select count(*)
+						   from likes AS l2
+						   where l2.resturant_id = l1.resturant_id AND
+						         l2.type LIKE 'L') like_count,
+								 (select count(*)
+						   from likes AS l3
+						   where l3.resturant_id = l1.resturant_id AND
+						         l3.type LIKE 'D') dislike_count
+FROM likes AS l1
+--where likes.type LIKE 'L' 
+group by resturant_id
+order by resturant_id;
+</code>
+</query>
+
+
+<query>
+<head>Show the like dislike count for a partticular resturant</head>
+<title>Query for Show the like dislike count for a partticular resturant </title>
+
+<code>
+select resturant.name,resturant.id,ldcount.like_count,ldcount.dislike_count
+from resturant , ldcount
+where ldcount.resturant_id = 168 and
+       resturant.id = ldcount.resturant_id;
+</code>
+</query>
+
+
+
+
+
+

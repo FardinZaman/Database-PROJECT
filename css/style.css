@@ -1,0 +1,203 @@
+body{
+	font-family : 'Open sans';
+}
+
+div.navigation{
+	height : 100%;
+	position : fixed;
+	left : 0;
+	top : 0;
+	width : 250px;
+	background-color : #fff;
+	box-shadow : 0px 9px 31px 6px rgba(0, 0, 0, .1);
+    overflow-y: auto;
+}
+
+.navigation .logo{
+	box-sizing : border-box;
+	width : 100%;
+	padding : 25px 25px 50px;
+}
+
+.navigation .logo img{
+	width : 100%;
+}
+
+.navigation ul{
+	list-style : none;
+	margin-top : 50px;
+	padding : 0;
+}
+
+.navigation ul>li{
+	list-style : none;
+	margin : 0;
+}
+
+.navigation ul>li>a{
+    text-decoration: none;
+    color: #777;
+    font-family: roboto;
+    font-size: 12px;
+    line-height: 42px;
+    font-weight: 500;
+    letter-spacing: 3px;	
+	display : block;
+	text-align : center;
+}
+
+div.sqlContainer{
+	width : 600px;
+	padding : 100px;
+}
+
+h1{
+	color: #000;
+    margin: 0 !important;
+    letter-spacing: 3px;
+    font-size: 60px;
+    font-weight: 900;
+    font-family: 'Playfair Display', sans-serif;
+}
+
+h3{
+	font-size: 20px;
+    letter-spacing: 1px;
+    color: #1e272c;
+    font-weight: 700;	
+	margin : 0;
+	font-family : 'muli';
+	color : #22137c;
+}
+
+h2{
+    font-family: oswald;
+    font-weight: 800;
+    font-size: 25px;
+	color : #1e272c;
+	margin : 0;
+}
+
+h4{
+	font-family: muli;
+    font-style: italic;
+    font-weight: 400;	
+}
+
+
+.divider{
+	background-color : #22137c;
+	width : 80px;
+	height : 3px;
+    margin: 10px 0 20px;
+}
+
+p{
+	font-size: 16px;
+    letter-spacing: 1px;
+    color: #1e272c;
+    font-weight: 400;	
+	margin : 0;	
+	font-family : 'muli',;
+}
+
+
+.verticalLine{
+	background-color : #cccccc;
+	width : 1px;
+	height : 100%;
+	top : 0;
+	left : 25%;
+	position: fixed;
+	z-index : -1;
+}
+
+.verticalLine.l1{
+	left : 30%;
+}
+.verticalLine.l2{
+	left : 50%;
+}
+
+.verticalLine.l3{
+	left : 75%;
+}
+
+.site-container{
+	box-sizing : border-box;
+	padding-left : 350px;
+}
+
+#welcome{
+	
+}
+
+
+#welcome .container{
+	padding : 85px 0;
+}
+
+#welcome .gap{
+	height : 110px;
+}
+
+#welcome p.tagline{
+	display: inline-block;
+    background-color: #050463;
+    color: #fff;
+    margin-top: 10px;
+    padding: 5px 18px;
+    font-weight: 400;
+}
+
+.queries, .functions{
+	margin-top : 30px;
+}
+
+.queries h4, .functions h4{
+	margin : 5px;
+}
+
+.queries .query .editor, .functions .function .editor{
+	margin-top : 30px;
+	padding-right : 200px;
+	box-sizing : border-box;
+}
+
+.queries .query .run, .functions .function .run{
+	margin-top: 30px;
+    display: inline-block;
+    font-size: 20px;
+    text-decoration: none;
+    border: solid 1px #282a36;
+    padding: 7px 15px;
+    font-family: Oswald;
+    font-weight: 500;
+	transition : background-color .3s, color .3s;
+	color : #282a36;
+}
+.queries .query .run:hover, .functions .function:hover{
+	background-color : #282a36;
+	color : #fff;
+}
+
+.output{
+/*	box-shadow : 0px 1px 0px 6px rgba(0, 0, 0, .1);*/
+    border: solid 6px rgba(0, 0, 0, .1);
+    width: 90%;
+    margin-bottom: 30px;
+}
+
+table.result{
+	font-family: roboto;
+    font-size: 13px;
+}
+
+table.result td{
+    padding: 2px 5px;
+    background-color: #f7f7f7;
+}
+
+#queries, #functions, #erd{
+	margin-top : 70px;
+}

@@ -1,0 +1,69 @@
+<query>
+<head>Distance in kilometer</head>
+<title>Function for measuring lattitude longitude in kilometers</title>
+
+<code>
+select loctokm('12.12, 14.14', '12.17,14.39');
+</code>
+</query>
+
+<query>
+<head>Followers of one user </head>
+<title>Apply Followers of one user</title>
+
+<code>
+select * from followers('Fardin');
+</code>
+</query>
+
+<query>
+<head>persons a user follows</head>
+<title>persons a user follows</title>
+
+<code>
+select * from following('Fardin');
+</code>
+</query>
+
+<query>
+<head>follower count function</head>
+<title>follower count function</title>
+
+<code>
+select * from counting_follow();
+</code>
+</query>
+
+<query>
+<head>counting_whomIfollow</head>
+<title>counting_whomIfollow</title>
+
+<code>
+select * from counting_whomIfollow();
+</code>
+</query>
+
+<query>
+<head>Search a keyword</head>
+<title>function for searching by any keyword</title>
+
+<code>
+select * from searchword('pizza', 1);
+</code>
+</query>
+
+<query>
+<head>Show the maximum time searched keyword(food/resturant)</head>
+<title>function for the maximum time searched keyword(food/resturant</title>
+
+<code>
+SELECT *
+FROM search_count()
+WHERE how_much = (
+ SELECT
+  	   MAX (how_much)
+ FROM
+    search_count()
+)
+</code>
+</query>

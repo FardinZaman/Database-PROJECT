@@ -1,0 +1,100 @@
+<query>
+<head>Search follower count</head>
+<title>Query for Search follower count</title>
+
+<code>
+select count(*)
+from person , follow
+where person.name LIKE 'Perry' and
+      follow.followee_id = person.id;
+</code>
+</query>
+
+<query>
+<head>Ratings</head>
+<title>Resturant Ratings.</title>
+
+<code>
+select resturant.id,resturant.ratings
+from resturant;
+</code>
+</query>
+
+<query>
+<head>Create Review</head>
+<title>Query for creating a review.</title>
+
+<code>
+INSERT INTO review (id , ratings , comment , person_id , food_id)
+VALUES (9 , 3 , 'good' , 1003 , 501);
+</code>
+</query>
+
+<query>
+<head>Follow history</head>
+<title>Query for follow history.</title>
+
+<code>
+select *
+from follow_history;
+</code>
+</query>
+
+<query>
+<head>Follow</head>
+<title>Query for follow</title>
+
+<code>
+insert into follow values(1611,3,11);
+</code>
+</query>
+
+<query>
+<head>Like a restaurant</head>
+<title>Query for Like a restaurant</title>
+
+<code>
+INSERT INTO likes VALUES(2105 , 52 , 168 ,'L' , '2017-05-05');
+</code>
+</query>
+
+
+<query>
+<head>Dislike a restaurant</head>
+<title>Query for dislike a restaurant</title>
+
+<code>
+INSERT INTO likes VALUES(2106 , 53 , 168 ,'D' , '2017-05-05');
+</code>
+</query>
+
+<query>
+<head>Change your opinion</head>
+<title>Query for changing your openion</title>
+
+<code>
+delete from likes
+where person_id = 46 AND resturant_id = 168;
+</code>
+</query>
+
+
+
+
+<query>
+<head>Show the like dislike count for a partticular resturant</head>
+<title>Query for Show the like dislike count for a partticular resturant </title>
+
+<code>
+select resturant.name,resturant.id,ldcount.like_count,ldcount.dislike_count
+from resturant , ldcount
+where ldcount.resturant_id = 168 and
+       resturant.id = ldcount.resturant_id;
+</code>
+</query>
+
+
+
+
+
+
